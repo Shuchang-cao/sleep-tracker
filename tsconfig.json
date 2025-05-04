@@ -9,11 +9,11 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
     "noImplicitAny": false,
     "noUnusedParameters": false,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "noUnusedLocals": false,
-    "strictNullChecks": false
+    "noUnusedLocals": false
   }
 }

@@ -1,0 +1,86 @@
+.onboarding-container {
+  height: auto;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, #1e0e3e, #1e1b4b);
+  color: white;
+}
+
+.parallax-wrapper {
+  position: relative;
+  z-index: 0;
+}
+
+.parallax-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.parallax-layer.stars {
+  background-image: url("/parallax-assets/stars.png");
+  z-index: 1;
+}
+
+.parallax-layer.moon {
+  background-image: url("/parallax-assets/moon.png");
+  z-index: 2;
+}
+
+.parallax-layer.mountains-back {
+  background-image: url("/parallax-assets/mountains_behind.png");
+  z-index: 3;
+  background-position: center 800%;
+}
+
+.parallax-layer.mountains-front {
+  background-image: url("/parallax-assets/mountains_front.png");
+  z-index: 5;
+}
+
+/* Texts between mountains */
+.parallax-title.fixed-title {
+  position: fixed;
+  top: max(64px, 80vh);
+  transform: translateY(-50%);
+  font-size: clamp(1.5rem, 6vw, 4rem);
+  max-width: 75vw;
+  color: white;
+  white-space: nowrap;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 130vh;
+  background: linear-gradient(to bottom, rgba(13, 12, 34, 0) 0%, #0d0c22 95%);
+  z-index: 6;
+}
+
+/* Area of actual contents */
+.after-parallax-text {
+  position: relative;
+  z-index: 20;
+  background: #0d0c22;
+  color: white;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+}
+
+.spacer-block {
+  height: 130vh;
+}

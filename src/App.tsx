@@ -2,18 +2,18 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { SleepLogger } from "./components/SleepLogger";
 import { QualityAssessment } from "./components/QualityAssessment";
-import { SleepSummary } from "./components/SleepSummary";
 import { Layout } from "./components/Layout";
-import { UserProfile } from "./components/UserProfile";
 import { Login } from "./pages/Login";
 import { SignUp } from "./pages/SignUp";
 import { AuthMiddleware } from "./middleware/auth";
-import { AuthProvider } from "@/lib/auth.tsx";
+import { AuthProvider } from "./lib/auth";
+import DashboardPage from "./pages/DashboardPage";
+import ProfilePage from "./pages/ProfilePage";
 
 const queryClient = new QueryClient();
 
@@ -29,13 +29,22 @@ const App = () => (
             <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={
               <AuthMiddleware>
-                <Index />
+                <Layout>
+                  <Index />
+                </Layout>
               </AuthMiddleware>
             } />
             <Route path="/log" element={
               <AuthMiddleware>
                 <Layout>
                   <SleepLogger />
+                </Layout>
+              </AuthMiddleware>
+            } />
+            <Route path="/dashboard" element={
+              <AuthMiddleware>
+                <Layout>
+                  <DashboardPage />
                 </Layout>
               </AuthMiddleware>
             } />
@@ -46,17 +55,10 @@ const App = () => (
                 </Layout>
               </AuthMiddleware>
             } />
-            <Route path="/summary" element={
-              <AuthMiddleware>
-                <Layout>
-                  <SleepSummary />
-                </Layout>
-              </AuthMiddleware>
-            } />
             <Route path="/profile" element={
               <AuthMiddleware>
                 <Layout>
-                  <UserProfile />
+                  <ProfilePage />
                 </Layout>
               </AuthMiddleware>
             } />

@@ -76,4 +76,4 @@ export const Login = () => {
       </Card>
     </div>
   );
-}; 
+};
